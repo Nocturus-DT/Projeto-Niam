@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIAM - Projeto de IA Antimalware</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 3cm 2cm 2cm 3cm;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            text-align: justify;
+            color: #000;
+            background: #fff;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 3cm 2cm 2cm 3cm;
+        }
+        
+        .capa {
+            text-align: center;
+            page-break-after: always;
+            margin-top: 0;
+        }
+        
+        .capa h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 8cm;
+            margin-bottom: 2cm;
+        }
+        
+        .capa .subtitle {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 6cm;
+        }
+        
+        .capa .info {
+            font-size: 12pt;
+            margin-bottom: 0.3cm;
+        }
+        
+        h1 {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 2cm;
+            margin-bottom: 1cm;
+            text-align: left;
+        }
+        
+        h1::before {
+            content: counter(section) " ";
+        }
+        
+        h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 1.5cm;
+            margin-bottom: 0.8cm;
+            text-align: left;
+        }
+        
+        h2::before {
+            content: counter(section) "." counter(subsection) " ";
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
+            text-align: left;
+        }
+        
+        p {
+            text-indent: 1.25cm;
+            margin-bottom: 0.5cm;
+            margin-top: 0;
+        }
+        
+        .no-indent {
+            text-indent: 0;
+        }
+        
+        ul, ol {
+            margin-left: 1.25cm;
+            margin-bottom: 0.5cm;
+        }
+        
+        li {
+            margin-bottom: 0.3cm;
+        }
+        
+        .referencias {
+            text-indent: 0;
+            margin-left: 0;
+            margin-bottom: 1cm;
+        }
+        
+        .flowchart {
+            text-align: center;
+            margin: 2cm 0;
+            page-break-inside: avoid;
+        }
+        
+        .flowchart-container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            background: #f9f9f9;
+        }
+        
+        .flow-box {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 15px 25px;
+            margin: 10px auto;
+            border-radius: 5px;
+            font-weight: bold;
+            max-width: 300px;
+        }
+        
+        .flow-arrow {
+            font-size: 24pt;
+            margin: 5px 0;
+        }
+        
+        .abstract {
+            margin: 2cm 4cm;
+            text-align: justify;
+        }
+        
+        .abstract h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 1cm;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+        
+        .btn-download {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .btn-download:hover {
+            background: #0052a3;
+        }
+        
+        @media print {
+            .btn-download {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-download" onclick="window.print()">📄 Baixar PDF</button>
+
+    <!-- CAPA -->
+    <div class="capa">
+        <p class="info">UNIVERSIDADE ESTADUAL DE LONDRINA</p>
+        <p class="info">CENTRO DE CIÊNCIAS EXATAS</p>
+        <p class="info">DEPARTAMENTO DE COMPUTAÇÃO</p>
+        
+        <h1>NIAM – NEURAL INTELLIGENT ADAPTIVE MALWARE-DEFENDER:<br>ARQUITETURA E FLUXOGRAMA DE DESENVOLVIMENTO DE UMA IA ANTIMALWARE PARA SERVIDORES DE HOSPEDAGEM</h1>
+        
+        <div style="margin-top: 8cm;">
+            <p class="info">Daniel Teixeira</p>
+            <p class="info" style="margin-top: 4cm;">LONDRINA</p>
+            <p class="info">2025</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- FOLHA DE ROSTO -->
+    <div style="page-break-after: always;">
+        <div style="text-align: center; margin-top: 8cm;">
+            <p class="info" style="font-weight: bold;">Daniel Teixeira</p>
+        </div>
+        
+        <h1 style="text-align: center; margin-top: 4cm;">NIAM – NEURAL INTELLIGENT ADAPTIVE MALWARE-DEFENDER: ARQUITETURA E FLUXOGRAMA DE DESENVOLVIMENTO DE UMA IA ANTIMALWARE PARA SERVIDORES DE HOSPEDAGEM</h1>
+        
+        <div style="margin: 3cm 0 0 8cm; text-align: justify; max-width: 10cm;">
+            <p class="no-indent">Projeto de pesquisa apresentado ao Departamento de Computação da Universidade Estadual de Londrina como requisito parcial para desenvolvimento de sistema de inteligência artificial para defesa de servidores.</p>
+        </div>
+        
+        <div style="margin-top: 6cm; text-align: center;">
+            <p class="info">LONDRINA</p>
+            <p class="info">2025</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- RESUMO -->
+    <div class="abstract page-break">
+        <h2 class="no-indent">RESUMO</h2>
+        <p>Este documento descreve, em formato técnico e compatível com critérios acadêmicos típicos (ABNT), o projeto NIAM – uma Inteligência Artificial autônoma para defesa de servidores. Apresenta o fluxo de desenvolvimento (estudos, melhorias e aperfeiçoamentos), a construção do servidor físico e lógico, estratégias de demonstração para clientes e investidores, e o plano experimental inicial. Cada etapa principal é detalhada com suas subpartes, responsabilidades, métricas e riscos. Inclui-se um fluxograma protótipo visual que ilustra o pipeline desde pesquisas até os primeiros experimentos controlados.</p>
+        
+        <p class="no-indent" style="margin-top: 1cm;"><strong>Palavras-chave:</strong> Inteligência Artificial. Segurança da Informação. Antimalware. Detecção de Ameaças. Machine Learning.</p>
+    </div>
+    
+    <!-- ABSTRACT -->
+    <div class="abstract page-break">
+        <h2 class="no-indent">ABSTRACT</h2>
+        <p>This document presents NIAM – an autonomous AI designed for server defense – including its development flow, hardware construction, demos for clients/investors, and the initial experimental plan. Each main phase is clearly explained with subparts, responsibilities, metrics and risks. A prototype flowchart illustrates the pipeline from research to first controlled experiments.</p>
+        
+        <p class="no-indent" style="margin-top: 1cm;"><strong>Keywords:</strong> Artificial Intelligence. Information Security. Antimalware. Threat Detection. Machine Learning.</p>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div style="counter-reset: section;">
+        
+        <h1 style="counter-increment: section;">INTRODUÇÃO</h1>
+        <p>Este documento visa organizar e formalizar o conceito do projeto NIAM (Neural Intelligent Adaptive Malware-defender). O objetivo é descrever de maneira clara e reproduzível os passos necessários da pesquisa inicial até a operação de um servidor de hospedagem assistido por IA, incluindo etapas técnicas, comerciais e de segurança.</p>
+        
+        <p>A crescente sofisticação de ameaças cibernéticas demanda soluções igualmente avançadas e autônomas. O projeto NIAM propõe uma abordagem inovadora que combina múltiplos mecanismos de detecção com aprendizado de máquina para criar um sistema adaptativo de defesa em tempo real.</p>
+        
+        <h1 style="counter-increment: section;">OBJETIVOS</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Objetivo Geral</h2>
+        <p>Desenvolver e integrar uma IA autônoma (NIAM) que monitore ativamente servidores de hospedagem, utilize múltiplos mecanismos de detecção (ferramentas comerciais e open-source), aprenda com eventos reais e gere uma lista de ameaças e respostas automatizadas.</p>
+        
+        <h2 style="counter-increment: subsection;">Objetivos Específicos</h2>
+        <ul>
+            <li>Projetar arquitetura modular para NIAM (aquisição, análise, resposta, aprendizagem);</li>
+            <li>Implementar um pipeline de testes em ambiente controlado (VMs e containers);</li>
+            <li>Construir um servidor protótipo com capacidade para demonstrar funcionalidades a clientes e investidores;</li>
+            <li>Definir métricas de eficácia e segurança, e realizar os primeiros experimentos documentados.</li>
+        </ul>
+        
+        <h1 style="counter-increment: section;">ARQUITETURA PROPOSTA</h1>
+        <p>A arquitetura do sistema NIAM é modular e organizada em camadas, permitindo flexibilidade, escalabilidade e manutenibilidade. Cada camada possui responsabilidades específicas e bem definidas.</p>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Camada de Coleta (Sensors)</h2>
+        <p>Agentes implementados em VMs e containers que coletam logs, tráfego de rede, integridade de arquivos e comportamento de processos. Esta camada é responsável pela captura de dados em tempo real do ambiente monitorado.</p>
+        
+        <h2 style="counter-increment: subsection;">Camada de Análise (Analyzer)</h2>
+        <p>Módulo onde NIAM orquestra múltiplos motores (AVs comerciais e open-source), heurísticas comportamentais e modelos de machine learning para classificar eventos. A análise é realizada em múltiplas dimensões para aumentar a precisão da detecção.</p>
+        
+        <h2 style="counter-increment: subsection;">Camada de Decisão (Decision Engine)</h2>
+        <p>Política que correlaciona sinais, atribui níveis de confiança e decide ações automáticas (quarentena, bloqueio de IP, isolamento de VM) ou ações humanas (alerta, investigação). O motor de decisão utiliza regras configuráveis e aprendizado para otimizar as respostas.</p>
+        
+        <h2 style="counter-increment: subsection;">Camada de Aprendizagem (Learner)</h2>
+        <p>Componente que agrega incidentes, alimenta um repositório de ameaças (Threat DB) e ajusta regras e modelos com supervisão humana inicial. Esta camada permite que o sistema evolua e se adapte a novas ameaças.</p>
+        
+        <h2 style="counter-increment: subsection;">Camada de Orquestração e Integração</h2>
+        <p>Gestão de deploys, atualizações de AVs, gerenciamento de chaves, e integração com painéis de controle para clientes. Esta camada garante a operação contínua e eficiente do sistema.</p>
+        
+        <h1 style="counter-increment: section;">FLUXO DE DESENVOLVIMENTO</h1>
+        <p>O desenvolvimento do projeto NIAM segue uma metodologia estruturada em etapas sequenciais, cada uma com objetivos e entregas específicas.</p>
+        
+        <p class="no-indent">Resumo das etapas principais:</p>
+        <ul>
+            <li>Pesquisa e levantamento de requisitos;</li>
+            <li>Prototipagem do motor de análise;</li>
+            <li>Integração de AVs e sistemas SIEM;</li>
+            <li>Construção do servidor físico e ambiente virtualizado;</li>
+            <li>Demonstrações e captação de interesse;</li>
+            <li>Experimentos controlados;</li>
+            <li>Ciclo de melhoria contínua.</li>
+        </ul>
+        
+        <div class="flowchart">
+            <p class="no-indent" style="font-weight: bold; margin-bottom: 1cm;">Figura 1 – Fluxograma do Pipeline de Desenvolvimento</p>
+            <div class="flowchart-container">
+                <div class="flow-box">Pesquisa & Levantamento</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Prototipagem (Analyzer)</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Integração AVs & SIEM</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Construção Servidor Protótipo</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Demo 7 dias & Captação</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Experimentos Controlados</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-box">Ciclo de Melhoria (Learner)</div>
+            </div>
+            <p class="no-indent" style="margin-top: 0.5cm; font-size: 10pt;">Fonte: Elaborado pelo autor (2025)</p>
+        </div>
+        
+        <h1 style="counter-increment: section;">CONSTRUÇÃO DO SERVIDOR</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Requisitos Mínimos e Componentes</h2>
+        <p>A infraestrutura de hardware deve atender aos seguintes requisitos:</p>
+        <ul>
+            <li><strong>CPU:</strong> processador com bom número de threads (ex.: AMD Ryzen/EPYC ou Intel Xeon para produção). Para protótipo, CPU de 6-8 cores pode ser suficiente;</li>
+            <li><strong>Memória:</strong> 32–128 GB dependendo do número de VMs e testes simultâneos;</li>
+            <li><strong>Armazenamento:</strong> NVMe para performance (pelo menos 1 TB); backups em NAS ou cloud;</li>
+            <li><strong>Rede:</strong> link com IP fixo e boa banda de upload; idealmente backbone em datacenter;</li>
+            <li><strong>Redundância:</strong> fonte redundante (para produção), RAID para dados críticos.</li>
+        </ul>
+        
+        <h2 style="counter-increment: subsection;">Software Básico</h2>
+        <p>A pilha de software inclui:</p>
+        <ul>
+            <li><strong>Hypervisor:</strong> Proxmox/ESXi ou gestão via KVM+libvirt;</li>
+            <li><strong>Orquestração:</strong> Docker + Kubernetes (opcional dependendo da escala);</li>
+            <li><strong>SIEM/Logs:</strong> ELK stack ou equivalente;</li>
+            <li><strong>Ferramentas AV integradas:</strong> ClamAV, YARA, engines comerciais via API;</li>
+            <li><strong>Painel:</strong> painel web para clientes com autenticação e logs.</li>
+        </ul>
+        
+        <h2 style="counter-increment: subsection;">Montagem e Validação</h2>
+        <p>O processo de validação inclui testes de carga e stress, verificação de isolamento entre VMs, e estabelecimento de planos de manutenção e atualização periódica.</p>
+        
+        <h1 style="counter-increment: section;">DEMONSTRAÇÕES PARA CLIENTES E INVESTIDORES</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Demonstração Técnica para Clientes</h2>
+        <p>Demonstração curta com objetivo de mostrar valor imediato:</p>
+        <ul>
+            <li><strong>Ambiente:</strong> VM sandbox com um jogo/servidor de teste ou aplicação web;</li>
+            <li><strong>Recursos demonstrados:</strong> detecção de comportamento malicioso simulado, isolamento automático de VM, painel com logs e timeline;</li>
+            <li><strong>Duração:</strong> 7 dias trial (ou demonstração ao vivo de 20–40 minutos).</li>
+        </ul>
+        
+        <h2 style="counter-increment: subsection;">Demonstração para Investidores</h2>
+        <p>Demonstração executiva com ênfase em métricas: número de detecções, taxa de falsos positivos, redução de downtime estimado, custo-benefício. Apresentação do roadmap: versão beta → clientes pagantes → escala. Material inclui slides com arquitetura, projeção financeira, e PoC técnica gravada.</p>
+        
+        <h2 style="counter-increment: subsection;">Formatos e Scripts de Apresentação</h2>
+        <p>Desenvolvimento de script de demonstração passo-a-passo, checklist de pré-demonstração e FAQ para questões frequentes.</p>
+        
+        <h1 style="counter-increment: section;">PLANO DE EXPERIMENTOS INICIAIS</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Ambiente Controlado</h2>
+        <p>Isolamento de rede de testes com topologia virtual. Preparação de casos de teste: malware conhecidos em VMs instrumentadas, tráfego malicioso simulado, anexos com phishing estático.</p>
+        
+        <h2 style="counter-increment: subsection;">Métricas</h2>
+        <p>As seguintes métricas serão monitoradas:</p>
+        <ul>
+            <li>Taxa de detecção (TPR - True Positive Rate);</li>
+            <li>Taxa de falsos positivos (FPR - False Positive Rate);</li>
+            <li>Tempo médio de detecção (MTTD - Mean Time To Detect);</li>
+            <li>Tempo médio de resposta (MTTR - Mean Time To Respond).</li>
+        </ul>
+        
+        <h2 style="counter-increment: subsection;">Procedimento</h2>
+        <p>Execução de testes automatizados, registro de logs, validação das decisões do Decision Engine. Revisão humana de amostras para ajuste do Learner.</p>
+        
+        <h2 style="counter-increment: subsection;">Segurança e Ética</h2>
+        <p>Todos os testes serão realizados em ambiente isolado; não haverá liberação de amostras maliciosas para terceiros; cumprimento da legislação local será rigorosamente observado.</p>
+        
+        <h1 style="counter-increment: section;">SEGURANÇA, BACKUPS E COMPLIANCE</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Estratégias de Backup</h2>
+        <p>Implementação de snapshots regulares, replicação off-site e verificação de integridade dos dados.</p>
+        
+        <h2 style="counter-increment: subsection;">Proteções</h2>
+        <p>Firewalls, WAFs (Web Application Firewalls), MFA (Multi-Factor Authentication) para acesso administrativo, e logs imutáveis.</p>
+        
+        <h2 style="counter-increment: subsection;">Compliance</h2>
+        <p>Observância da LGPD (Lei Geral de Proteção de Dados) para dados de clientes; políticas de privacidade e termos de serviço claros e transparentes.</p>
+        
+        <h1 style="counter-increment: section;">RISCOS E MITIGAÇÃO</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Riscos Técnicos</h2>
+        <p>Falha de hardware, falsos positivos, evasão por malware sofisticado. Mitigação através de redundância, ajuste fino dos modelos e monitoramento contínuo.</p>
+        
+        <h2 style="counter-increment: subsection;">Riscos Legais</h2>
+        <p>Armazenamento indevido de dados sensíveis. Mitigação através de políticas claras, criptografia e retenção mínima de dados.</p>
+        
+        <h2 style="counter-increment: subsection;">Riscos Financeiros</h2>
+        <p>Capital insuficiente para operação. Mitigação através de pré-vendas, estabelecimento de parcerias estratégicas e planos de contingência.</p>
+        
+        <h1 style="counter-increment: section;">CRONOGRAMA E ORÇAMENTAÇÃO</h1>
+        
+        <h2 style="counter-reset: subsection; counter-increment: subsection;">Fases e Marcos</h2>
+        <p>Sugestão de cronograma para 6 meses:</p>
+        <ul>
+            <li><strong>Mês 0–1:</strong> Prototipagem e página de captação de interesse;</li>
+            <li><strong>Mês 1–2:</strong> Integração inicial de AVs e primeiro PoC;</li>
+            <li><strong>Mês 2–3:</strong> Montagem do servidor protótipo e testes de carga;</li>
+            <li><strong>Mês 3–4:</strong> Trials com clientes e coleta de dados;</li>
+            <li><strong>Mês 4–6:</strong> Ajustes, contratação inicial e plano de expansão.</li>
+        </ul>
+        
+        <h2 style="counter-increment: subsection;">Orçamento Estimado</h2>
+        <p>Valores aproximados em reais (R$):</p>
+        <ul>
+            <li>Hardware protótipo: R$ 8.000 – 20.000;</li>
+            <li>Custos mensais (datacenter, IP, energia): R$ 300 – 2.000;</li>
+            <li>Software e licenças: variável conforme necessidade.</li>
+        </ul>
+        
+        <h1 style="counter-increment: section;">CONCLUSÃO</h1>
+        <p>O projeto NIAM apresenta-se como uma solução viável e inovadora para a defesa automatizada de servidores de hospedagem. A estratégia de desenvolvimento baseada em MVP (Minimum Viable Product), trial com clientes reais e reinvestimento gradual mostra-se sólida quando acompanhada de controles rigorosos de segurança, métricas claras de desempenho e planejamento financeiro conservador.</p>
+        
+        <p>A arquitetura modular proposta permite escalabilidade e adaptação às necessidades específicas de cada cliente, enquanto o componente de aprendizagem contínua garante que o sistema evolua junto com as ameaças emergentes. A validação através de experimentos controlados e demonstrações práticas estabelecerá a credibilidade necessária para captação de investimentos e expansão comercial.</p>
+        
+        <p>O sucesso do projeto dependerá da execução disciplinada de cada fase, do monitoramento constante das métricas definidas e da capacidade de adaptação às demandas do mercado e aos desafios técnicos que surgirem durante o desenvolvimento.</p>
+        
+        <div class="page-break"></div>
+        
+        <h1 style="counter-increment: section; text-transform: uppercase;">REFERÊNCIAS</h1>
+        
+        <p class="referencias">ANTONAKAKIS, M. et al. Understanding the Mirai Botnet. In: USENIX SECURITY SYMPOSIUM, 26., 2017. Proceedings [...]. Berkeley: USENIX Association, 2017. p. 1093-1110.</p>
+        
+        <p class="referencias">BUCZAK, A. L.; GUVEN, E. A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection. IEEE Communications Surveys & Tutorials, v. 18, n. 2, p. 1153-1176, 2016.</p>
+        
+        <p class="referencias">PROXMOX. Proxmox VE Administration Guide. Disponível em: https://pve.proxmox.com/pve-docs/. Acesso em: 3 nov. 2025.</p>
+        
+        <p class="referencias">SCARFONE, K.; MELL, P. Guide to Intrusion Detection and Prevention Systems (IDPS). NIST Special Publication 800-94. Gaithersburg: National Institute of Standards and Technology, 2007.</p>
+        
+        <p class="referencias">SOMMER, R.; PAXSON, V. Outside the Closed World: On Using Machine Learning for Network Intrusion Detection. In: IEEE SYMPOSIUM ON SECURITY AND PRIVACY, 2010. Proceedings [...]. Oakland: IEEE, 2010. p. 305-316.</p>
+        
+        <p class="referencias">ELASTIC. Elasticsearch Reference. Disponível em: https://www.elastic.co/guide/. Acesso em: 3 nov. 2025.</p>
+        
+        <p class="referencias">CLAMAV. ClamAV Documentation. Disponível em: https://docs.clamav.net/. Acesso em: 3 nov. 2025.</p>
+        
+        <p class="referencias">BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018. Disponível em: http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm. Acesso em: 3 nov. 2025.</p>
+    </div>
+</body>
+</html>
